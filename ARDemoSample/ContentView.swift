@@ -18,6 +18,9 @@ struct ContentView: View {
     private let effectTitleSuffix: String = "EffectTitle"
     private let effectShapeSuffix: String = "EffectShape"
 
+    //
+    private let springAnimation: Animation = .spring(response: 0.5, dampingFraction: 0.7)
+    
     private let gridColumns = [
         GridItem(spacing: 4.0),
         GridItem(spacing: 0.0)
@@ -46,7 +49,8 @@ struct ContentView: View {
                                 let name = material.materialName
                                 let effectTitleID = material.materialIdentifier + effectTitleSuffix
                                 let effectShapeID = material.materialIdentifier + effectShapeSuffix
-                                
+
+                                //
                                 HStack {
                                     VStack {
                                         Text(name)
@@ -58,7 +62,8 @@ struct ContentView: View {
                                         Rectangle()
                                             .matchedGeometryEffect(id: effectShapeID, in: namespace)
                                             .onTapGesture {
-                                                withAnimation(.spring(response: 0.5, dampingFraction: 0.7)) {
+                                                //
+                                                withAnimation(springAnimation) {
                                                     show.toggle()
                                                     selectedMaterial = material
                                                 }
@@ -81,6 +86,7 @@ struct ContentView: View {
                     let effectTitleID = materialFileName + effectTitleSuffix
                     let effectShapeID = materialFileName + effectShapeSuffix
 
+                    //
                     VStack {
                         //
                         HStack {
@@ -90,14 +96,18 @@ struct ContentView: View {
                                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
                                 .padding(.top, 16.0)
                             Spacer()
-                            Button(action: {
-                                withAnimation(.spring(response: 0.5, dampingFraction: 0.7)) {
-                                    show.toggle()
-                                    selectedMaterial = nil
+                            Button(
+                                action: {
+                                    //
+                                    withAnimation(springAnimation) {
+                                        show.toggle()
+                                        selectedMaterial = nil
+                                    }
+                                }, 
+                                label: {
+                                    Text("× 閉じる")
                                 }
-                            }, label: {
-                                Text("× 閉じる")
-                            })
+                            )
                         }
                         .padding(.horizontal, 8.0)
                         //
