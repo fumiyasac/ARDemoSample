@@ -1,3 +1,33 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:646eb81a07add20659b00e5c5d65605a11b6bcd404d01d62adbf342150219192
-size 679
+//
+//  CustomSceneView.swift
+//  ARDemoSample
+//
+//  Created by 酒井文也 on 2024/05/19.
+//
+
+import SceneKit
+import SwiftUI
+
+// MARK: - UIViewRepresentable
+
+//
+struct CustomSceneView: UIViewRepresentable {
+
+    // MARK: - `@Binding` Property
+
+    @Binding var scene: SCNScene?
+
+    // MARK: - Function
+
+    func makeUIView(context: Context) -> SCNView {
+        let view = SCNView()
+        view.allowsCameraControl = false
+        view.autoenablesDefaultLighting = true
+        view.antialiasingMode = .multisampling2X
+        view.scene = scene
+        view.backgroundColor = .clear
+        return view
+    }
+
+    func updateUIView(_ uiView: SCNView, context: Context) {}
+}
