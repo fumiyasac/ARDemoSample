@@ -138,7 +138,7 @@ struct ContentView: View {
                     .frame(maxWidth: .infinity, maxHeight: 400.0)
                     .background(
                         Rectangle()
-                            // 👉 ② Animation対象となる矩形要素（遷移先）k
+                            // 👉 ② Animation対象となる矩形要素（遷移先）
                             .matchedGeometryEffect(id: effectShapeID, in: namespace)
                     )
                 }

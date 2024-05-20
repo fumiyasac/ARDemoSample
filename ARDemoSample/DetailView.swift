@@ -68,7 +68,7 @@ struct DetailView: View {
             // DragGestureと連動して回転する様な形を実現する
             DragGesture()
                 .updating($temporaryOffsetValue, body: { currentValue, outputValue, _ in
-                    // MEMO:
+                    // MEMO: -64.0をしているのは調整のため
                     outputValue = currentValue.location.x - 64.0
                 }
             )
