@@ -15,7 +15,6 @@
 		DEB414D42BF999CF00DEF655 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB414D32BF999CF00DEF655 /* DetailView.swift */; };
 		DEB414D82BF9A0E100DEF655 /* CustomSceneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB414D72BF9A0E100DEF655 /* CustomSceneView.swift */; };
 		DEB414DE2BF9C06A00DEF655 /* sandwitch.scn in Resources */ = {isa = PBXBuildFile; fileRef = DEB414DD2BF9C06A00DEF655 /* sandwitch.scn */; };
-		DEB414E22BF9C09200DEF655 /* sushi.scn in Resources */ = {isa = PBXBuildFile; fileRef = DEB414E12BF9C09200DEF655 /* sushi.scn */; };
 		DEB414EC2BF9E10E00DEF655 /* gyoza.scn in Resources */ = {isa = PBXBuildFile; fileRef = DEB414EB2BF9E10E00DEF655 /* gyoza.scn */; };
 		DEB414F42BF9E31C00DEF655 /* thai.scn in Resources */ = {isa = PBXBuildFile; fileRef = DEB414F32BF9E31C00DEF655 /* thai.scn */; };
 		DEB414F82BF9E3BF00DEF655 /* pizza.scn in Resources */ = {isa = PBXBuildFile; fileRef = DEB414F72BF9E3BF00DEF655 /* pizza.scn */; };
@@ -32,7 +31,6 @@
 		DEB414D32BF999CF00DEF655 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		DEB414D72BF9A0E100DEF655 /* CustomSceneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSceneView.swift; sourceTree = "<group>"; };
 		DEB414DD2BF9C06A00DEF655 /* sandwitch.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = sandwitch.scn; sourceTree = "<group>"; };
-		DEB414E12BF9C09200DEF655 /* sushi.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = sushi.scn; sourceTree = "<group>"; };
 		DEB414EB2BF9E10E00DEF655 /* gyoza.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = gyoza.scn; sourceTree = "<group>"; };
 		DEB414F32BF9E31C00DEF655 /* thai.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = thai.scn; sourceTree = "<group>"; };
 		DEB414F72BF9E3BF00DEF655 /* pizza.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = pizza.scn; sourceTree = "<group>"; };
@@ -95,7 +93,6 @@
 				DEB414F72BF9E3BF00DEF655 /* pizza.scn */,
 				DEB414F32BF9E31C00DEF655 /* thai.scn */,
 				DEB414EB2BF9E10E00DEF655 /* gyoza.scn */,
-				DEB414E12BF9C09200DEF655 /* sushi.scn */,
 				DEB414DD2BF9C06A00DEF655 /* sandwitch.scn */,
 				DEB414D12BF990DF00DEF655 /* pancakes.scn */,
 			);
@@ -170,7 +167,6 @@
 			files = (
 				DEB414F82BF9E3BF00DEF655 /* pizza.scn in Resources */,
 				DEB414D22BF990DF00DEF655 /* pancakes.scn in Resources */,
-				DEB414E22BF9C09200DEF655 /* sushi.scn in Resources */,
 				DEB414C12BF984E300DEF655 /* Preview Assets.xcassets in Resources */,
 				DEB414FC2BF9E8CB00DEF655 /* burger.scn in Resources */,
 				DEB414BE2BF984E300DEF655 /* Assets.xcassets in Resources */,
