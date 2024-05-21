@@ -28,7 +28,7 @@ __【🖼️ Screenshots】__
 
 List | Detail
 :--: | :--:
-<img src="./00-sample-capture-list.png" width="300" /> | <img src="./images/00-sample-capture-detail.png" width="300" />
+<img src="./images/00-sample-capture-list.png" width="300" /> | <img src="./images/00-sample-capture-detail.png" width="300" />
 
 __【🎥 Movie】__
 
