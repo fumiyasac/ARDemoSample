@@ -24,4 +24,16 @@ $ git lfs pull
 
 ## 2. ポイント整理
 
+__【🖼️ Screenshots】__
+
+List | Detail
+:--: | :--:
+<img src="./00-sample-capture-list.png" width="300" /> | <img src="./images/00-sample-capture-detail.png" width="300" />
+
+__【🎥 Movie】__
+
+https://github.com/fumiyasac/ARDemoSample/assets/949561/1e3e48ea-53e2-408d-97a5-1c8c280c8753
+
+__【🍀 Guidance】__
+
 ![サンプル解説プレゼンテーション資料](./images/presentations.png)
