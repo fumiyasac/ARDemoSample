@@ -42,17 +42,16 @@ struct DetailCustomSceneView: UIViewRepresentable {
 }
 ```
 
-3Dモデル表示と調整対応部分:
+3Dモデル表示と調整対応部分の実装例です。
 
 ```swift
 // 👉 ① View要素内Property定義
-
 // 表示対象SCNScene（SceneKit）をStateとして定義
 @State private var scene: SCNScene?
 
 // 👉 ② initializer内での調整処理
-// SCNVector3: 
-// SCNVector4: 
+// SCNVector3: https://developer.apple.com/documentation/scenekit/scnvector3
+// SCNVector4: https://developer.apple.com/documentation/scenekit/scnvector4
 // (参考記事) https://appleengine.hatenablog.com/entry/2017/06/02/163647
 
 // 処理1. 少しだけ手前側に斜めに倒すイメージにして見やすくする
@@ -68,14 +67,76 @@ self.scene?.rootNode.scale = SCNVector3Make(
     1.28, // Y軸
     1.28  // Z軸
 )
-
 ```
 
+SceneKitを利用した3Dモデル表示を回転可能にする部分の実装例です。
 
+```swift
+// 👉 ① スライダー要素のModifier処理部分の抜粋
+.gesture(
+    // DragGestureと連動して回転する様な形を実現する
+    DragGesture()
+       .updating($temporaryOffsetValue, body: { currentValue, outputValue, _ in
+           // MEMO: -64.0をしているのは調整のため
+           outputValue = currentValue.location.x - 64.0
+       })
+)
+.onChange(of: temporaryOffsetValue) {
+    // MEMO: 変数「offset」が変更されるので、配置要素が合わせて回転する
+    rotateSceneViewObject(animate: temporaryOffsetValue == .zero)
+}
 
+// 👉 ② Drag処理変化量に合わせて水平方向回転を実施するメソッド
+// ②-1: View要素のProperyにDragGesture発動時に一時的に格納するための変数が定義されている
+@GestureState private var temporaryOffsetValue: CGFloat = 0
 
-__(3):__ 
+// ②-2: DragGesture発動時に一時的に格納するための変数
+private func rotateSceneViewObject(animate: Bool = false) {
 
+    // ① Transition処理を開始する
+    if animate {
+        SCNTransaction.begin()
+        SCNTransaction.animationDuration = 0.36
+    }
+
+    // この様な条件分岐にしないと綺麗に回転しなかったんですよねー...😇
+    scene?.rootNode.eulerAngles.y = Float((temporaryOffsetValue * .pi) / 180.0)
+
+    // ② Transition処理を実行する
+    if animate {
+        SCNTransaction.commit()
+    }
+}
+```
+
+__(3):画面全体の構成__ 
+
+一覧から詳細画面へ遷移する様に見せる構成において、ポイントになり得る部分をまとめています。
+
+```swift
+// 👉 ① View要素のProperyに表示対象EntityをStateとして定義
+@State private var selectedMaterial: MaterialEntity? = nil
+
+// 👉 ② body要素内ではZStackを利用して画面状態に合わせて表示対象の内容をAnimationを利用して切り替える
+// ※ 「.matchedGeometryEffect」Modifierの活用して一意なID名と@Namespaceで定義する名前空間との紐付けを利用する
+var body: some View {
+    NavigationStack {
+        // 全体をZStackにして表示要素を重ねている
+        // 👉 AndroidやFlutter等でよく見る「Hero」Animationの様なイメージ
+        ZStack {
+            // `@State`で定義した変数の状態を元にして表示状態を決定する
+            if selectedMaterial == nil {
+                // 一覧表示時のView全体要素 (全体はScrollView + Grid表示構成)     
+            } else {
+                // 拡大時のView全体要素
+            }
+        }
+        .frame(width: screenWidth)
+        .navigationTitle("3Dモデルを表示して回転させよう♻️")
+        .navigationBarTitleDisplayMode(.inline)
+    }
+}
+```
 
 __(4):3Dモデル入手する__ 
 
